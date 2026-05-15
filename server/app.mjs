@@ -3,6 +3,7 @@ import { env } from "./config/env.config.mjs";
 import cors from "cors";
 import authRouter from "./routes/auth.router.mjs";
 import { db } from "./config/db.config.mjs";
+import otpRouter from "./routes/otp.controller.mjs";
 
 const app = express();
 app.use(cors({
@@ -12,6 +13,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/auth", authRouter);
+app.use("/otp", otpRouter);
 
 const port = env.port;
 app.listen(port, async () => {

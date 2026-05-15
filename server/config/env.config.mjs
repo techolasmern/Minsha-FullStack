@@ -8,4 +8,8 @@ export const env = {
         name: process.env.DATABASE_NAME,
     },
     jwt_secret: process.env.JWT_SECRET,
+    email: {
+        user: process.env.EMAIL_USER,
+        password: process.env.EMAIL_PASSWORD,
+    }
 }
