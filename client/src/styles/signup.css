@@ -1,0 +1,75 @@
+.signup-form-container h1 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #333;
+    text-align: center;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-row {
+    display: flex;
+    gap: 10px;
+}
+
+.form-row input {
+    flex: 1;
+    min-width: 0;
+}
+
+.auth-form input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+}
+
+.auth-form input:focus {
+    border-color: #4a90e2;
+    outline: none;
+}
+
+.auth-button {
+    padding: 12px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.auth-button:hover {
+    background-color: #357abd;
+}
+
+@media (max-width: 400px) {
+    .form-row {
+        flex-direction: column;
+    }
+}
+
+.otp-container {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.otp-container input{
+    width: 100%;
+}
+
+.otp-container button{
+    text-wrap: nowrap;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #666;
+}

@@ -6,7 +6,12 @@ import { env } from "../config/env.config.mjs";
 const signup = async (request, response) => {
     try {
         const body = request.body;
-        const requiredFields = ["first_name", "last_name", "username", "email", "password", "confirm_password"];
+        const requiredFields = ["first_name", "is_verified", "last_name", "username", "email", "password", "confirm_password"];
+        if (!body.is_verified) {
+            return response.status(400).send({
+                message: "Please verify your email."
+            })
+        }
         for (const field of requiredFields) {
             if (!body[field]) {
                 return response.status(400).send({
