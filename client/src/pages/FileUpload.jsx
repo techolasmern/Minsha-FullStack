@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { api } from "../lib/axios";
+import { useNavigate } from "react-router";
 
 export const FileUpload = () => {
 
     const [file, setFile] = useState(null);
+    const navigate = useNavigate()
 
     const handleFileSelected = e => {
         setFile(e.target.files[0]);
@@ -22,7 +24,13 @@ export const FileUpload = () => {
         }
     }
 
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        navigate("/auth");
+    }
+
     return <div>
+        <button onClick={handleLogout}>Logout</button>
         {file && <div>
             <img src={URL.createObjectURL(file)} alt="selected image" height={300} width={300}/>
         </div> }

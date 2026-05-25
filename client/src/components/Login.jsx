@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { api } from "../lib/axios";
 import "../styles/login.css"; 
+import { useNavigate } from "react-router";
 
 export const Login = () => {
     const [formData, setFormData] = useState({
         username: "",
         password: "",
     });
+    const navigate = useNavigate()
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -16,8 +18,9 @@ export const Login = () => {
         e.preventDefault();
         try {
             const response = await api.post("/auth/login", formData);
-            console.log(response.data.token);
             localStorage.setItem("token", response.data.token);
+            console.log(localStorage.getItem("token"))
+            navigate("/upload/file");
         } catch (error) {
             console.log(error.response?.data.message);
             alert("Login failed: " + (error.response?.data.message || "Server Error"));
